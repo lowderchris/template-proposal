@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\geometry{letterpaper}
+
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{natbib}
+\usepackage{deluxetable}
+\usepackage{xcolor}
+\definecolor{Cerulean}{RGB}{0, 123, 167}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=Cerulean, 
+            citecolor=Cerulean, urlcolor=Cerulean]{hyperref}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{pdfpages}
+
+\usepackage{sectsty}
+
+\partfont{\Large}
+\sectionfont{\Large}
+\subsectionfont{\large}
+\subsubsectionfont{\normalsize}
+\paragraphfont{\normalsize}
+
+\usepackage[font={normalsize,it}]{caption}
+
+\pagenumbering{roman}
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+\myTOC
+\clearpage
+\pagenumbering{arabic}
+}
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% Definitions for the journal names
+\newcommand{\adv}{    {\it Adv. Space Res.}} 
+\newcommand{\annG}{   {\it Ann. Geophys.}} 
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astron. J.}} 
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+\newcommand{\ssr}{    {\it Space Sci. Rev.}} 
+% The following two definitions added manually
+\newcommand{\natcomm}{    {\it Nature Comm.}}
+\newcommand{\lrsp}{  {\it Living Rev. Solar Phys.}}
+\newcommand{\jgrss}{    {\it J. Geophys. Res. : Space Phys.}}
+\chardef\us=`\_
+
+\title{Title}
+\author{Author}
+\date{}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+%%%%%
+\part{Table of Contents}
+\setcounter{section}{0}
+%%%%%
+
+\tableofcontents
+
+\vfill
+\pagebreak
+
+%%%%%
+\part{Scientific / Technical / Management Plan}
+\setcounter{section}{0}
+%%%%%
+
+Proposal.
+
+\vfill
+\pagebreak
+
+%%%%%
+\part{References and Citations}
+\setcounter{section}{0}
+%%%%%
+
+\bibliographystyle{aasjournal}
+\tocless\bibliography{proposal}
+
+\vfill
+\pagebreak
+
+%%%%%
+\part{Biographical Sketches}
+\setcounter{section}{0}
+%%%%%
+
+\vfill
+\pagebreak
+
+%%%%%
+%\part{Table of Personnel and Work Effort}
+%\setcounter{section}{0}
+%%%%%
+
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}},addtotoc={1,part,-1,{Table of Personnel and Work Effort},personnel}]{include/workeffort.pdf}
+
+%%%%%
+%\part{Current and Pending Support}
+%\setcounter{section}{0}
+%%%%%
+
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}},addtotoc={1,part,-1,{Current and Pending Support},cp}]{include/currentpending.pdf}
+
+%%%%%
+%\part{Budget Justification}
+%\setcounter{section}{0}
+%%%%%
+
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}},addtotoc={1,part,-1,{Budget Justification},budget}]{include/budgetjustification.pdf}
+
+\end{document}  
