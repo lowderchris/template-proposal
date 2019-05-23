@@ -8,24 +8,27 @@
 \usepackage{epstopdf}
 \usepackage{natbib}
 \usepackage{deluxetable}
+\usepackage{pdfpages}
+
+% Set colors to something more pleasant
 \usepackage{xcolor}
 \definecolor{Cerulean}{RGB}{0, 123, 167}
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=Cerulean, 
             citecolor=Cerulean, urlcolor=Cerulean]{hyperref}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\usepackage{pdfpages}
-
+% Modify section font sizes
 \usepackage{sectsty}
-
 \partfont{\Large}
 \sectionfont{\Large}
 \subsectionfont{\large}
 \subsubsectionfont{\normalsize}
 \paragraphfont{\normalsize}
 
+% Set caption format
 \usepackage[font={normalsize,it}]{caption}
 
+% Initialize TOC with roman numerals
 \pagenumbering{roman}
 \let\myTOC\tableofcontents
 \renewcommand\tableofcontents{%
@@ -34,6 +37,7 @@
 \pagenumbering{arabic}
 }
 
+% Define command to ignore section in TOC
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
 
@@ -67,9 +71,11 @@
 \newcommand{\jgrss}{    {\it J. Geophys. Res. : Space Phys.}}
 \chardef\us=`\_
 
+%%%%%
 \title{Title}
 \author{Author}
 \date{}
+%%%%%
 
 \begin{document}
 \maketitle
